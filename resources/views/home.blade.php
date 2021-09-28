@@ -14,7 +14,15 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <h1 class="text-center">
+
+                        {{ __('Number of teachers observed') }}
+                    </h1>
+
+                    <h2 class="display-1 text-center">
+                        {{ $lessons->count() }}
+                    </h2>
+
                 </div>
             </div>
         </div>
