@@ -33,7 +33,7 @@ class CreateLessonsTable extends Migration
             $table->integer('timeutil');
             $table->integer('goodprac');
             $table->integer('descriptor');
-            $table->text('comment');
+            $table->text('comment')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

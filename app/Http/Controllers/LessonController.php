@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lesson;
-use Barryvdh\DomPDF\PDF;
+use PDF;
 use Illuminate\Http\Request;
 
 class LessonController extends Controller
@@ -49,7 +49,29 @@ class LessonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required',
+            'class' => 'required',
+            'objcommnclearly' => 'required',
+            'inclusion' => 'required',
+            'reviewed' => 'required',
+            'thrknow' => 'required',
+            'subjmat' => 'required',
+            'knowrel' => 'required',
+            'ideaexp' => 'required',
+            'actandqn' => 'required',
+            'praise' => 'required',
+            'poorbehave' => 'required',
+            'fairness' => 'required',
+            'recmiscon' => 'required',
+            'studengaged' => 'required',
+            'timeutil' => 'required',
+            'goodprac' => 'required',
+            'descriptor' => 'required',
+            'comment' => 'required',
+        ]);
+
+        dd($validated);
     }
 
     /**
