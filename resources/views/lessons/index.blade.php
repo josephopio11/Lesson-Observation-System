@@ -71,7 +71,7 @@
                                         <td>{{ __('No total') }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('lesson.show', $lesson->id) }}">
+                                            <a href="{{ route('lesson.observed', $lesson->id) }}">
 
                                                 {{ __('Details') }}
 

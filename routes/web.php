@@ -22,4 +22,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('singlelesson/{id}', [LessonController::class, 'singleLesson'])->name('lesson.observed');
+Route::get('printlesson/{id}', [LessonController::class, 'printLesson'])->name('lesson.print');
+Route::get('downloadlesson/{id}', [LessonController::class, 'downloadLesson'])->name('lesson.download');
+
 Route::resource('lesson', LessonController::class);

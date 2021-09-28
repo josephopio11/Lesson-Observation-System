@@ -31,7 +31,7 @@
                     <div class="row contacts">
                         <div class="col invoice-to">
                             <div class="text-gray-light">TEACHER'S NAME:</div>
-                            <h2 class="to">{{ $lesson-> }}</h2>
+                            <h2 class="to">{{ $lesson->name }}</h2>
                             <div class="address">Class Observed: <strong>Year {{ $lesson->class }}</strong>
                             </div>
                             <div class="email">
@@ -40,9 +40,9 @@
                         </div>
                         <div class="col invoice-details">
                             <h1 class="invoice-id">Lesson Observation</h1>
-                            <div class="date">Date of Observation:
+                            <div class="date">Observation On:
                                 {{ Carbon\Carbon::parse($lesson->created_at) }}</div>
-                            <div class="date">Printing Date: {{ Carbon\Carbon::now('Africa/Bujumbura') }}
+                            <div class="date">Printed On: {{ Carbon\Carbon::now('Africa/Bujumbura') }}
                             </div>
                         </div>
                     </div>

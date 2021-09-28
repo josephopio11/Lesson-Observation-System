@@ -25,7 +25,7 @@
                         <div class="row contacts">
                             <div class="col invoice-to">
                                 <div class="text-gray-light">TEACHER'S NAME:</div>
-                                <h2 class="to">{{ $lesson-> }}</h2>
+                                <h2 class="to">{{ $lesson->name }}</h2>
                                 <div class="address">Class Observed: <strong>Year {{ $lesson->class }}</strong>
                                 </div>
                                 <div class="email">

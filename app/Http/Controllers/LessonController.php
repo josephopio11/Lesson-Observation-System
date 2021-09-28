@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 
 class LessonController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +38,7 @@ class LessonController extends Controller
      */
     public function create()
     {
-        //
+        return view('lessons.create');
     }
 
     /**
