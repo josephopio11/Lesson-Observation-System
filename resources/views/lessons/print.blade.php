@@ -26,7 +26,7 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <div class="col invoice-to float-left">
+                                        {{-- <div class="col invoice-to float-left"> --}}
                                             <div class="text-gray-light">TEACHER'S NAME:</div>
                                             <h2 class="to">{{ $lesson->name }}</h2>
                                             <div class="address">Class Observed: <strong>Year
@@ -35,10 +35,10 @@
                                             <div class="email">
                                                 Observed by: <strong>{{ $lesson->user->name }}</strong>
                                             </div>
-                                        </div>
+                                        {{-- </div> --}}
                                     </td>
                                     <td>
-                                        <div class="col invoice-details float-right">
+                                        {{-- <div class="col invoice-details float-right"> --}}
                                             <h1 class="invoice-id">Lesson Observation</h1>
                                             <div class="date">Date of Observation: <strong>
                                                     {{ Carbon\Carbon::parse($lesson->created_at)->setTimezone('Africa/Bujumbura') }}</strong>
@@ -46,7 +46,7 @@
                                             <div class="date">Printing Date:
                                                 <strong>{{ Carbon\Carbon::now('Africa/Bujumbura') }}</strong>
                                             </div>
-                                        </div>
+                                        {{-- </div> --}}
 
                                     </td>
                                 </tr>
