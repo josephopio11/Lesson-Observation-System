@@ -21,6 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
 Route::get('singlelesson/{id}', [LessonController::class, 'singleLesson'])->name('lesson.observed');
 Route::get('printlesson/{id}', [LessonController::class, 'printLesson'])->name('lesson.print');

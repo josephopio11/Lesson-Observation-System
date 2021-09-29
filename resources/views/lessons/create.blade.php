@@ -9,22 +9,9 @@
                         <h4>
                             {{ __('Make an Observation') }}
                         </h4>
-
                     </div>
 
                     <div class="card-body">
-                        {{-- This is where I should enter the text --}}
-                        {{-- <form>
-                            <div class="form-group">
-                                <label for="formControlRange">Objectives were communicated clearly at the start of the
-                                    lesson</label>
-                                <input type="range" class="form-control-range" id="formControlRange" min="0" max="10"
-                                    value="0">
-                            </div>
-                        </form> --}}
-
-
-
                         <article class="card-body mx-auto" style="max-width: 600px">
                             @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -55,21 +42,13 @@
                                             <option value="9">Year 9</option>
                                             <option value="8">Year 8</option>
                                             <option value="7">Year 7</option>
-                                            {{-- <option value="6">Year 6</option>
-                                            <option value="5">Year 5</option>
-                                            <option value="4">Year 4</option>
-                                            <option value="3">Year 3</option>
-                                            <option value="2">Year 2</option>
-                                            <option value="1">Year 1</option> --}}
                                         </select>
                                     </div>
                                 </fieldset>
 
-
                                 <fieldset class="form-group p-3" style="border: 1px solid black;">
                                     <legend>Assessment Areas</legend>
                                     <div class="list-group">
-
                                         <div class="form-group list-group-item list-group-item-action">
                                             <label for="">Objectives were communicated clearly at the start of the lesson
                                             </label>
