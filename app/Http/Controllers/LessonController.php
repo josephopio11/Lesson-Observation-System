@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Lesson;
 use PDF;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class LessonController extends Controller
 {
@@ -14,10 +13,10 @@ class LessonController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -127,6 +126,7 @@ class LessonController extends Controller
 
         return view('lessons.print', compact('lesson', 'total', 'verdict'));
     }
+
     public function downloadLesson($id)
     {
         $lesson = Lesson::findOrFail($id);
@@ -136,6 +136,8 @@ class LessonController extends Controller
             $lesson->poorbehave + $lesson->fairness + $lesson->recmiscon +
             $lesson->studengaged + $lesson->timeutil + $lesson->goodprac;
         $verdict = $total / 30;
+
+        // return view('')
 
         $pdf = PDF::loadView('lessons.print', compact('lesson', 'total', 'verdict'));
 

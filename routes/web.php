@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessonController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,14 +16,11 @@ use App\Http\Controllers\LessonController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', );
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
 Route::get('singlelesson/{id}', [LessonController::class, 'singleLesson'])->name('lesson.observed');
 Route::get('printlesson/{id}', [LessonController::class, 'printLesson'])->name('lesson.print');

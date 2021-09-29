@@ -175,9 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
+        // niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
 
-        // Barryvdh\DomPDF\ServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
 
     ],
@@ -234,10 +234,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class,
+        // 'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class,
 
 
-        // 'PDF' => Barryvdh\DomPDF\Facade::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
 
     ],

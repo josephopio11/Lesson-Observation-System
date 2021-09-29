@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -22,6 +22,20 @@
                     <h2 class="display-1 text-center">
                         {{ $lessons->count() }}
                     </h2>
+                    <div>
+                        <hr>
+                        <h2 class="text-center">Teachers observed</h2>
+                        <hr>
+                    </div>
+                    <div class="row text-center">
+                        @foreach ($lessons as $lesson)
+                        <div class="col-sm-4">
+                            <a href="#" class="btn btn-outline-danger btn-block mb-1">
+                                {{ $lesson->name }}
+                            </a>
+                        </div>
+                        @endforeach
+                    </div>
 
                 </div>
             </div>
