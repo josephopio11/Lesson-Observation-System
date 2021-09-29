@@ -30,7 +30,7 @@
                     <div class="row text-center">
                         @foreach ($lessons as $lesson)
                         <div class="col-sm-4">
-                            <a href="#" class="btn btn-outline-danger btn-block mb-1">
+                            <a href="{{ route('lesson.observed', $lesson->id) }}" class="btn btn-outline-danger btn-block mb-1">
                                 {{ $lesson->name }}
                             </a>
                         </div>

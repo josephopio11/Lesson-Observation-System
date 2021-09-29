@@ -20,7 +20,9 @@ use App\Http\Controllers\LessonController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
-Auth::routes();
+Auth::routes([
+    // 'register'=> false,
+]);
 
 Route::get('singlelesson/{id}', [LessonController::class, 'singleLesson'])->name('lesson.observed');
 Route::get('printlesson/{id}', [LessonController::class, 'printLesson'])->name('lesson.print');

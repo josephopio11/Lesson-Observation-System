@@ -226,14 +226,14 @@
             </table>
             <br>
 
-            <table class="joseph table table-striped">
+            <table class="joseph table table-dark">
                 <tr>
                     <th scope="col">
                         <h4>Verdict:</h4>
                     </th>
-                    <th scope="col">
+                    <td scope="col">
                         Supervisor:
-                        <strong>
+                        <br><strong>
                             @if ($verdict <= 1) 
                                 {{ __('Poor') }} 
                             @elseif ($verdict <=2) 
@@ -248,22 +248,22 @@
                                 {{ __('Wrong Data Entered') }} 
                             @endif
                         </strong> 
-                    </th> 
-                    <th>
+                    </td> 
+                    <td>
                         Total Score: 
-                        <strong>
+                        <br><strong>
                             {{ $total }}/150
                         </strong>
-                    </th>
-                    <th>
+                    </td>
+                    <td>
                         Percentage Score: 
-                        <strong> 
+                        <br><strong> 
                             {{ number_format(($total / 150) * 100), 2 }}%
                         </strong>
-                    </th>
-                    <th scope="col">
+                    </td>
+                    <td scope="col">
                         Software:
-                        <strong>
+                        <br><strong>
                             @if ($verdict <= 1.5) 
                                 {{ __('Poor') }} 
                             @elseif ($verdict <=2.5) 
@@ -278,7 +278,7 @@
                                 {{ __('Wrong Data Entered') }} 
                             @endif 
                         </strong> 
-                    </th>
+                    </td>
                 </tr> 
             </table> 
             <div class="comments">
@@ -302,6 +302,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
     </script>
+    <script type="text/javascript">
+        window.onafterprint = window.close;
+        window.print();
+     </script>
 </body>
 
 </html>
