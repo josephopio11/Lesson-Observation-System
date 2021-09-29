@@ -10,19 +10,19 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             @guest
-            {{__('')}}
+                {{ __('') }}
             @else
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a href="{{ route('lesson.index') }}" class="nav-link">{{ __('Lessons Observed') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('lesson.create') }}" class="btn btn-outline-primary">New Observation</a>
-                </li>
-            </ul>
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a href="{{ route('lesson.index') }}" class="nav-link">{{ __('Lessons Observed') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('lesson.create') }}" class="btn btn-outline-primary">New Observation</a>
+                    </li>
+                </ul>
             @endguest
-            
+
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -32,7 +32,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
-                        
+
                     @endif
 
                     @if (Route::has('register'))
@@ -49,7 +49,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
+                                                     document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 

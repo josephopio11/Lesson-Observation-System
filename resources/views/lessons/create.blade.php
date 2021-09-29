@@ -28,7 +28,7 @@
                                 <fieldset class="form-group p-3" style="border: 1px solid black;">
                                     <legend>Key Info</legend>
                                     <div class="form-group input-group">
-                                        <input name="" class="form-control" placeholder="Teacher's Name" type="text"
+                                        <input name="name" class="form-control" placeholder="Teacher's Name" type="text"
                                             required>
                                     </div>
 
@@ -163,8 +163,9 @@
                                         <label for="editor">Observer Comment</label>
                                         <textarea name="comment" class="form-control" id="editor" rows="5"></textarea>
                                     </div>
-                                </fieldset>
 
+                                </fieldset>
+                                
                                 {{-- id 
 name
 class

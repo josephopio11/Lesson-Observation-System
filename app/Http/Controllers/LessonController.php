@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Lesson;
 use PDF;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LessonController extends Controller
 {
-     /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -49,9 +50,11 @@ class LessonController extends Controller
      */
     public function store(Request $request)
     {
+        $request['user_id'] = auth()->user()->id;
+        // dd($request);
         $validated = $request->validate([
             'name' => 'required',
-            'class' => 'required|numeric|max:10',
+            'class' => 'required|numeric|max:14',
             'objcommnclearly' => 'required|numeric|max:10',
             'inclusion' => 'required|numeric|max:10',
             'reviewed' => 'required|numeric|max:10',
@@ -69,9 +72,20 @@ class LessonController extends Controller
             'goodprac' => 'required|numeric|max:10',
             'descriptor' => 'required|numeric|max:10',
             'comment' => 'required',
+            'user_id' => 'required'
         ]);
 
-        dd($validated);
+        // dd($validated);
+
+        // Lesson::create([
+        //     'name' => $validated['name']
+        // ]);
+
+        // $user_id = Auth::user()->id;
+
+        Lesson::create($validated);
+
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -82,62 +96,21 @@ class LessonController extends Controller
      */
     public function show(Lesson $lesson)
     {
-        // $lesson = Lesson::findOrFail($lesson);
-        // $total =    $lesson->objcommnclearly + $lesson->reviewed + $lesson->inclusion +
-        //             $lesson->thrknow + $lesson->subjmat + $lesson->knowrel +
-        //             $lesson->ideaexp + $lesson->actandqn + $lesson->praise +
-        //             $lesson->poorbehave + $lesson->fairness + $lesson->recmiscon +
-        //             $lesson->studengaged + $lesson->timeutil + $lesson->goodprac;
-        // $verdict = $total/30;
-
-        // dd($lesson);
-
-        return view('lessons.show', ['lesson'=>$lesson]);
+        return view('lessons.show', ['lesson' => $lesson]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Lesson  $lesson
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Lesson $lesson)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Lesson  $lesson
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Lesson $lesson)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Lesson  $lesson
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Lesson $lesson)
-    {
-        //
-    }
 
     public function singleLesson($id)
     {
         $lesson = Lesson::findOrFail($id);
         $total =    $lesson->objcommnclearly + $lesson->reviewed + $lesson->inclusion +
-                    $lesson->thrknow + $lesson->subjmat + $lesson->knowrel +
-                    $lesson->ideaexp + $lesson->actandqn + $lesson->praise +
-                    $lesson->poorbehave + $lesson->fairness + $lesson->recmiscon +
-                    $lesson->studengaged + $lesson->timeutil + $lesson->goodprac;
-        $verdict = $total/30;
+            $lesson->thrknow + $lesson->subjmat + $lesson->knowrel +
+            $lesson->ideaexp + $lesson->actandqn + $lesson->praise +
+            $lesson->poorbehave + $lesson->fairness + $lesson->recmiscon +
+            $lesson->studengaged + $lesson->timeutil + $lesson->goodprac;
+        $verdict = $total / 30;
 
         return view('lessons.report', compact('lesson', 'total', 'verdict'));
     }
@@ -146,11 +119,11 @@ class LessonController extends Controller
     {
         $lesson = Lesson::findOrFail($id);
         $total =    $lesson->objcommnclearly + $lesson->reviewed + $lesson->inclusion +
-                    $lesson->thrknow + $lesson->subjmat + $lesson->knowrel +
-                    $lesson->ideaexp + $lesson->actandqn + $lesson->praise +
-                    $lesson->poorbehave + $lesson->fairness + $lesson->recmiscon +
-                    $lesson->studengaged + $lesson->timeutil + $lesson->goodprac;
-        $verdict = $total/30;
+            $lesson->thrknow + $lesson->subjmat + $lesson->knowrel +
+            $lesson->ideaexp + $lesson->actandqn + $lesson->praise +
+            $lesson->poorbehave + $lesson->fairness + $lesson->recmiscon +
+            $lesson->studengaged + $lesson->timeutil + $lesson->goodprac;
+        $verdict = $total / 30;
 
         return view('lessons.print', compact('lesson', 'total', 'verdict'));
     }
@@ -158,18 +131,16 @@ class LessonController extends Controller
     {
         $lesson = Lesson::findOrFail($id);
         $total =    $lesson->objcommnclearly + $lesson->reviewed + $lesson->inclusion +
-                    $lesson->thrknow + $lesson->subjmat + $lesson->knowrel +
-                    $lesson->ideaexp + $lesson->actandqn + $lesson->praise +
-                    $lesson->poorbehave + $lesson->fairness + $lesson->recmiscon +
-                    $lesson->studengaged + $lesson->timeutil + $lesson->goodprac;
-        $verdict = $total/30;
+            $lesson->thrknow + $lesson->subjmat + $lesson->knowrel +
+            $lesson->ideaexp + $lesson->actandqn + $lesson->praise +
+            $lesson->poorbehave + $lesson->fairness + $lesson->recmiscon +
+            $lesson->studengaged + $lesson->timeutil + $lesson->goodprac;
+        $verdict = $total / 30;
 
         $pdf = PDF::loadView('lessons.print', compact('lesson', 'total', 'verdict'));
 
-        return $pdf->download($lesson->name.'.pdf');
+        return $pdf->stream($lesson->name . '.pdf');
 
-//        return view('lessons.print', compact('lesson', 'total', 'verdict'));
+        //        return view('lessons.print', compact('lesson', 'total', 'verdict'));
     }
-
-
 }

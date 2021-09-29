@@ -3,7 +3,7 @@
 @section('content')
     <div class="">
         <div class="">
-                <div class="  ">
+                        <div class="    ">
         <div id="">
             <div class="invoice overflow-auto">
                 <div style="min-width: 600px">
@@ -11,7 +11,7 @@
                     <header>
                         <div class="row">
                             <div class="col">
-                                <img src="{{ asset('logo.png') }}" width="300" alt="">
+                                <img src="{{ asset('logo.png') }}" width="300px" alt="">
                             </div>
                             <div class="col company-details">
                                 <div>Avenue du Large, Kinindo</div>
@@ -23,24 +23,34 @@
                     </header>
                     <main>
                         <div class="row contacts">
-                            <div class="col invoice-to">
-                                <div class="text-gray-light">TEACHER'S NAME:</div>
-                                <h2 class="to">{{ $lesson->name }}</h2>
-                                <div class="address">Class Observed: <strong>Year {{ $lesson->class }}</strong>
-                                </div>
-                                <div class="email">
-                                    Observed by: <strong>{{ $lesson->user->name }}</strong>
-                                </div>
-                            </div>
-                            <div class="col invoice-details">
-                                <h1 class="invoice-id">Lesson Observation</h1>
-                                <div class="date">Date of Observation: <strong>
-                                        {{ Carbon\Carbon::parse($lesson->created_at)->setTimezone('Africa/Bujumbura') }}</strong>
-                                </div>
-                                <div class="date">Printing Date:
-                                    <strong>{{ Carbon\Carbon::now('Africa/Bujumbura') }}</strong>
-                                </div>
-                            </div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="col invoice-to float-left">
+                                            <div class="text-gray-light">TEACHER'S NAME:</div>
+                                            <h2 class="to">{{ $lesson->name }}</h2>
+                                            <div class="address">Class Observed: <strong>Year
+                                                    {{ $lesson->class }}</strong>
+                                            </div>
+                                            <div class="email">
+                                                Observed by: <strong>{{ $lesson->user->name }}</strong>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col invoice-details float-right">
+                                            <h1 class="invoice-id">Lesson Observation</h1>
+                                            <div class="date">Date of Observation: <strong>
+                                                    {{ Carbon\Carbon::parse($lesson->created_at)->setTimezone('Africa/Bujumbura') }}</strong>
+                                            </div>
+                                            <div class="date">Printing Date:
+                                                <strong>{{ Carbon\Carbon::now('Africa/Bujumbura') }}</strong>
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                         <table>
                             <thead>
