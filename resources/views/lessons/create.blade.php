@@ -50,7 +50,7 @@
                                     <legend>Assessment Areas</legend>
                                     <div class="list-group">
                                         <div class="form-group list-group-item list-group-item-action">
-                                            <label for="">Objectives were communicated clearly at the start of the lesson
+                                            <label for="">1. Objectives were communicated clearly at the start of the lesson
                                             </label>
                                             <input name="objcommnclearly" type="range" class="form-control-range"
                                                 id="formControlRange" min="0" max="10" value="0">
