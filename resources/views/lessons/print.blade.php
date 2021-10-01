@@ -234,19 +234,9 @@
                     <td scope="col">
                         Supervisor:
                         <br><strong>
-                            @if ($verdict <= 1) 
-                                {{ __('Poor') }} 
-                            @elseif ($verdict <=2) 
-                                {{ __('Unsatisfactory') }}
-                            @elseif ($verdict <=3) 
-                                {{ __('Satisfactory') }} 
-                            @elseif ($verdict <=4) 
-                                {{ __('Good') }}
-                            @elseif ($verdict <=5) 
-                                {{ __('Very Good') }} 
-                            @else 
-                                {{ __('Wrong Data Entered') }} 
-                            @endif
+                            <strong>
+                                {{ $descriptor }} 
+                            </strong>
                         </strong> 
                     </td> 
                     <td>
@@ -264,19 +254,9 @@
                     <td scope="col">
                         Software:
                         <br><strong>
-                            @if ($verdict <= 1.5) 
-                                {{ __('Poor') }} 
-                            @elseif ($verdict <=2.5) 
-                                {{ __('Unsatisfactory') }}
-                            @elseif ($verdict <=3.5) 
-                                {{ __('Satisfactory') }} 
-                            @elseif ($verdict <=4.5)
-                                {{ __('Good') }} 
-                            @elseif ($verdict <=5.5) 
-                                {{ __('Very Good') }} 
-                            @else
-                                {{ __('Wrong Data Entered') }} 
-                            @endif 
+                            <strong>
+                                {{ $verdict }} 
+                            </strong> 
                         </strong> 
                     </td>
                 </tr> 

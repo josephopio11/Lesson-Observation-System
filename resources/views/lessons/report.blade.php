@@ -210,42 +210,35 @@
                                     <th scope="col">
                                         <h4>Verdict:</h4>
                                     </th>
-                                    <th scope="col">
+                                    <td scope="col">
                                         Supervisor:
-                                        <strong>
-                                            @if ($verdict <= 1) {{ __('Poor') }} 
-                                            @elseif ($verdict <=2)
-                                                {{ __('Unsatisfactory') }} 
-                                            @elseif ($verdict <=3)
-                                                {{ __('Satisfactory') }} 
-                                            @elseif ($verdict <=4) 
-                                                {{ __('Good') }} 
-                                            @elseif ($verdict <=5) 
-                                                {{ __('Very Good') }} 
-                                            @else
-                                                {{ __('Wrong Data Entered') }} 
-                                            @endif 
+                                        <br><strong>
+                                            <strong>
+                                                {{ $descriptor }} 
+                                            </strong>
                                         </strong> 
-                                    </th> 
-                                    <th scope="col">
-                                        Software: 
-                                        <strong>
-                                            @if ($verdict <= 1) 
-                                                {{ __('Poor') }} 
-                                            @elseif ($verdict <=2)
-                                                {{ __('Unsatisfactory') }} 
-                                            @elseif ($verdict <=3)
-                                                {{ __('Satisfactory') }} 
-                                            @elseif ($verdict <=4) 
-                                                {{ __('Good') }}
-                                            @elseif ($verdict <=5) 
-                                                {{ __('Very Good') }} 
-                                            @else
-                                                {{ __('Wrong Data Entered') }} 
-                                            @endif 
+                                    </td> 
+                                    <td>
+                                        Total Score: 
+                                        <br><strong>
+                                            {{ $total }}/150
+                                        </strong>
+                                    </td>
+                                    <td>
+                                        Percentage Score: 
+                                        <br><strong> 
+                                            {{ number_format(($total / 150) * 100), 2 }}%
+                                        </strong>
+                                    </td>
+                                    <td scope="col">
+                                        Software:
+                                        <br><strong>
+                                            <strong>
+                                                {{ $verdict }} 
+                                            </strong> 
                                         </strong> 
-                                    </th> 
-                                </tr>
+                                    </td>
+                                </tr> 
                             </table>
                             <div class="notices">
                                 <div>
