@@ -26,7 +26,6 @@ class LessonController extends Controller
  public function index()
  {
   $lessons = Lesson::paginate(50);
-  // $total = Lesson::getTotal();
 
   return view('lessons.index', compact('lessons'));
  }

@@ -42,8 +42,10 @@
                                 <div class="col invoice-details">
                                     <h1 class="invoice-id">Lesson Observation</h1>
                                     <div class="date">Observation On:
-                                        {{ Carbon\Carbon::parse($lesson->created_at) }}</div>
-                                    <div class="date">Printed On: {{ Carbon\Carbon::now('Africa/Bujumbura') }}
+                                        <strong>
+                                            {{ Carbon\Carbon::parse($lesson->created_at) }}</div>
+                                        </strong>
+                                    <div class="date">Printed On: <strong>{{ Carbon\Carbon::now('Africa/Bujumbura') }}</strong>
                                     </div>
                                 </div>
                             </div>

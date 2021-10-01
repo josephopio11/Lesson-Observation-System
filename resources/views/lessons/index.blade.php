@@ -42,7 +42,6 @@
                                     <th scope="col">13</th>
                                     <th scope="col">14</th>
                                     <th scope="col">15</th>
-                                    <th scope="col">Total</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -68,8 +67,6 @@
                                         <td>{{ $lesson->timeutil }}</td>
                                         <td>{{ $lesson->goodprac }}</td>
 
-                                        <td>{{ __('No total') }}
-                                        </td>
                                         <td>
                                             <a href="{{ route('lesson.observed', $lesson->id) }}">
 
