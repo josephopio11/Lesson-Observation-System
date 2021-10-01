@@ -235,7 +235,7 @@
                         Supervisor:
                         <br><strong>
                             <strong>
-                                {{ $descriptor }} 
+                                {{ $sys_desc }} 
                             </strong>
                         </strong> 
                     </td> 

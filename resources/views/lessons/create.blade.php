@@ -157,7 +157,7 @@
                                             <div class="float-right">Excellent</div>
                                         </div>
                                         <input name="descriptor" type="range" class="form-control-range"
-                                            id="formControlRange" min="0" max="5" value="0">
+                                            id="formControlRange" min="1" max="5" value="0">
                                     </div>
                                     <div class="form-group">
                                         <label for="editor">Observer Comment</label>

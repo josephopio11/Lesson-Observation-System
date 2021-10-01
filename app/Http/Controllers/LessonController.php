@@ -74,7 +74,7 @@ class LessonController extends Controller
    'user_id'         => 'required',
   ]);
 
-  // dd($validated);
+//   dd($validated);
 
   // Lesson::create([
   //     'name' => $validated['name']
@@ -101,6 +101,7 @@ class LessonController extends Controller
  public function singleLesson($id)
  {
   $lesson = Lesson::findOrFail($id);
+
   $total  = $lesson->objcommnclearly + $lesson->reviewed + $lesson->inclusion +
   $lesson->thrknow + $lesson->subjmat + $lesson->knowrel +
   $lesson->ideaexp + $lesson->actandqn + $lesson->praise +
@@ -108,12 +109,12 @@ class LessonController extends Controller
   $lesson->studengaged + $lesson->timeutil + $lesson->goodprac;
 
   $percentage = ($total / 150) * 100;
+  
 
   $verdict    = $this->create_verdict($percentage);
-  $descriptor = $this->create_verdict($lesson->descriptor);
+  $sys_desc = $this->create_verdict(($lesson->descriptor)*20);
 
-//   dd($descriptor);
-  return view('lessons.report', compact('lesson', 'total', 'verdict', 'descriptor'));
+  return view('lessons.report', compact('lesson', 'total', 'verdict', 'sys_desc'));
  }
 
  public function printLesson($id)
@@ -128,9 +129,9 @@ class LessonController extends Controller
   $percentage = ($total / 150) * 100;
 
   $verdict    = $this->create_verdict($percentage);
-  $descriptor = $this->create_verdict($lesson->descriptor);
+  $sys_desc = $this->create_verdict(($lesson->descriptor)*20);
 
-  return view('lessons.print', compact('lesson', 'total', 'verdict', 'descriptor'));
+  return view('lessons.print', compact('lesson', 'total', 'verdict', 'sys_desc'));
  }
 
  public function downloadLesson($id)
@@ -141,7 +142,11 @@ class LessonController extends Controller
   $lesson->ideaexp + $lesson->actandqn + $lesson->praise +
   $lesson->poorbehave + $lesson->fairness + $lesson->recmiscon +
   $lesson->studengaged + $lesson->timeutil + $lesson->goodprac;
-  $verdict = $total / 30;
+
+  $percentage = ($total / 150) * 100;
+
+  $verdict    = $this->create_verdict($percentage);
+  $sys_desc = $this->create_verdict(($lesson->descriptor)*20);
 
   // return view('')
 
@@ -155,26 +160,19 @@ class LessonController extends Controller
  public function create_verdict($item)
  {
   if ($item > 90) {
-   $verdict = 'Excellent';
-   return $verdict;
+   return 'Excellent';
   } elseif ($item >= 80) {
-   $verdict = 'Very Good';
-   return $verdict;
+   return 'Very Good';
   } elseif ($item > 60) {
-   $verdict = 'Good';
-   return $verdict;
+   return 'Good';
   } elseif ($item > 60) {
-   $verdict = 'Satisfactory';
-   return $verdict;
+   return 'Satisfactory';
   } elseif ($item > 20) {
-   $verdict = 'Unsatisfactory';
-   return $verdict;
+   return 'Unsatisfactory';
   } elseif ($item > 0) {
-   $verdict = 'Poor';
-   return $verdict;
+   return 'Poor';
   } else {
-   $verdict = 'Error 0190: Wrong data entered';
-   return $verdict;
+   return 'Error 0190: Wrong data entered';
   }
  }
 }
