@@ -42,12 +42,12 @@
                                             <option value="9">Year 9</option>
                                             <option value="8">Year 8</option>
                                             <option value="7">Year 7</option>
-                                            <option value="6">Year 9</option>
-                                            <option value="5">Year 8</option>
-                                            <option value="4">Year 7</option>
-                                            <option value="3">Year 9</option>
-                                            <option value="2">Year 8</option>
-                                            <option value="1">Year 7</option>
+                                            <option value="6">Year 6</option>
+                                            <option value="5">Year 5</option>
+                                            <option value="4">Year 4</option>
+                                            <option value="3">Year 3</option>
+                                            <option value="2">Year 2</option>
+                                            <option value="1">Year 1</option>
                                         </select>
                                     </div>
                                 </fieldset>
