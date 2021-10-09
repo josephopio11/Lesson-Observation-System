@@ -39,7 +39,7 @@ class LessonFactory extends Factory
             'studengaged' => rand(0, 10),
             'timeutil' => rand(0, 10),
             'goodprac' => rand(0, 10),
-            'descriptor' => rand(0, 5),
+            'descriptor' => rand(1, 5),
             'comment' => $this->faker->text(100),
             'user_id' => rand(1, 20)        ];
     }

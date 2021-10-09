@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lesson;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,7 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $lessons = Lesson::all();
+
+        // dd(Auth::user()->role);
+        if (Auth::user()->role === 0) {
+            # code...
+            $lessons = Lesson::all();
+        } else {
+            $lessons = Lesson::where('user_id', Auth::user()->id)->get();
+        }
 
         return view('home', compact('lessons'));
     }

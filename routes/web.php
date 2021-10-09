@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessonController;
-
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +29,4 @@ Route::get('printlesson/{id}', [LessonController::class, 'printLesson'])->name('
 Route::get('downloadlesson/{id}', [LessonController::class, 'downloadLesson'])->name('lesson.download');
 
 Route::resource('lesson', LessonController::class);
+Route::resource('users', UserController::class);

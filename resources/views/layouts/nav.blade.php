@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="bg-white shadow-sm navbar navbar-expand-md navbar-light">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/dashboard') }}">
             {{ config('app.name', 'Laravel') }}
@@ -13,10 +13,16 @@
                 {{ __('') }}
             @else
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
+                <ul class="mr-auto navbar-nav">
                     <li class="nav-item active">
                         <a href="{{ route('lesson.index') }}" class="nav-link">{{ __('Lessons Observed') }}</a>
                     </li>
+                    @if (Auth::user()->role === 0)
+                        <li class="nav-item active">
+                        <a href="{{ route('users.index') }}" class="nav-link">{{ __('Users') }}</a>
+                    </li>
+                    @endif
+                    
                     <li class="nav-item">
                         <a href="{{ route('lesson.create') }}" class="btn btn-outline-primary">New Observation</a>
                     </li>
@@ -25,7 +31,7 @@
 
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
+            <ul class="ml-auto navbar-nav">
                 <!-- Authentication Links -->
                 @guest
                     @if (Route::has('login'))
