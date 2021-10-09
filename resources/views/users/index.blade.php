@@ -44,8 +44,18 @@
                             <td>
                                 @if ($user->role === 0)
                                 <span class="badge badge-danger">Admin</span>
+                                @elseif ($user->role === 1)
+                                <span class="badge badge-info">Principal</span>
+                                @elseif ($user->role === 2)
+                                <span class="badge badge-primary">Head of Secondary</span>
+                                @elseif ($user->role === 3)
+                                <span class="badge badge-warning">Head of Primary</span>
+                                @elseif ($user->role === 4)
+                                <span class="badge badge-primary">Head of Department</span>
+                                @elseif ($user->role === 5)
+                                <span class="badge badge-success">Teacher</span>
                                 @else
-                                <span class="badge badge-success">User</span>
+                                <span class="badge badge-secondary">User type not defined</span>
                                 @endif
                             </td>
 

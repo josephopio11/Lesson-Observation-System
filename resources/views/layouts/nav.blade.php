@@ -1,4 +1,9 @@
 <nav class="bg-white shadow-sm navbar navbar-expand-md navbar-light">
+    <style>
+        .active {
+            border-bottom: 1px solid green;
+        }
+    </style>
     <div class="container">
         <a class="navbar-brand" href="{{ url('/dashboard') }}">
             {{ config('app.name', 'Laravel') }}
@@ -10,23 +15,24 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             @guest
-                {{ __('') }}
+            {{ __('') }}
             @else
-                <!-- Left Side Of Navbar -->
-                <ul class="mr-auto navbar-nav">
-                    <li class="nav-item active">
-                        <a href="{{ route('lesson.index') }}" class="nav-link">{{ __('Lessons Observed') }}</a>
-                    </li>
-                    @if (Auth::user()->role === 0)
-                        <li class="nav-item active">
-                        <a href="{{ route('users.index') }}" class="nav-link">{{ __('Users') }}</a>
-                    </li>
-                    @endif
-                    
-                    <li class="nav-item">
-                        <a href="{{ route('lesson.create') }}" class="btn btn-outline-primary">New Observation</a>
-                    </li>
-                </ul>
+            <!-- Left Side Of Navbar -->
+            <ul class="mr-auto navbar-nav">
+                <li class="nav-item @if (request()->segment(1)=== 'lesson') active @endif">
+                    <a href="{{ route('lesson.index') }}" class="nav-link">{{ __('Lessons Observed') }}</a>
+                </li>
+                @if (Auth::user()->role === 0)
+                <li
+                    class="nav-item @if (request()->segment(1)=== 'users') active @endif">
+                    <a href="{{ route('users.index') }}" class="nav-link">{{ __('Users') }}</a>
+                </li>
+                @endif
+
+                <li class="nav-item">
+                    <a href="{{ route('lesson.create') }}" class="btn btn-outline-primary">New Observation</a>
+                </li>
+            </ul>
             @endguest
 
 
@@ -34,36 +40,36 @@
             <ul class="ml-auto navbar-nav">
                 <!-- Authentication Links -->
                 @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
+                @if (Route::has('login'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                </li>
 
-                    @endif
+                @endif
 
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
+                @if (Route::has('register'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                </li>
+                @endif
                 @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
                 @endguest
             </ul>
         </div>
