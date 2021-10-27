@@ -5,6 +5,7 @@
     @include('layouts.nav')
     <div class="container">
         <div class="text-center">
+            <a href="{{ route('lesson.edit', $lesson->id) }}" class="btn btn-primary">Edit</a>
             <a href="{{ route('lesson.print', $lesson->id) }}" class="btn btn-success" target="_blank">Print</a>
             <a href="{{ route('lesson.download', $lesson->id) }}" class="btn btn-warning" target="_blank">Download
                 PDF</a>
