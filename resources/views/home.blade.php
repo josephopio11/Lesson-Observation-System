@@ -1,12 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="">
+<div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
+                <div class="card-header">
+                    <h4 class="float-left">
+                        {{ __('Dashboard') }}
+                    </h4>
+                    <div class="float-right">
+                        <a href="{{ route('lesson.create') }}" class="btn btn-outline-warning">New Observation</a>
+                    </div>
+                </div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -29,7 +35,7 @@
                     </div>
                     <div class="row text-center">
                         @foreach ($lessons as $lesson)
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <a href="{{ route('lesson.observed', $lesson->id) }}" class="btn btn-outline-danger btn-block mb-1">
                                 {{ $lesson->name }}
                             </a>

@@ -68,9 +68,14 @@
                                         <td>{{ $lesson->goodprac }}</td>
 
                                         <td>
-                                            <a href="{{ route('lesson.observed', $lesson->id) }}">
+                                            <a href="{{ route('lesson.observed', $lesson->id) }}" class="btn btn-sm btn-outline-secondary">
 
                                                 {{ __('Details') }}
+
+                                            </a>
+                                            <a href="{{ route('lesson.edit', $lesson->id) }}" class="btn btn-sm btn-outline-success">
+
+                                                {{ __('Edit') }}
 
                                             </a>
                                         </td>
