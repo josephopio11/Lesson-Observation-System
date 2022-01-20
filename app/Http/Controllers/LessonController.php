@@ -199,7 +199,7 @@ class LessonController extends Controller
 
         // return view('')
 
-        $pdf = PDF::loadView('lessons.print', compact('lesson', 'total', 'verdict'));
+        $pdf = PDF::loadView('lessons.print', compact('lesson', 'total', 'verdict', 'sys_desc'));
 
         return $pdf->stream($lesson->name . '.pdf');
 
@@ -214,7 +214,7 @@ class LessonController extends Controller
             return 'Very Good';
         } elseif ($item > 60) {
             return 'Good';
-        } elseif ($item > 60) {
+        } elseif ($item > 40) {
             return 'Satisfactory';
         } elseif ($item > 20) {
             return 'Unsatisfactory';
